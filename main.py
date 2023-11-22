@@ -53,9 +53,9 @@ class ScaffoldProject:
 
 
     def writePackages(self):
-        self.write_file('package.json', '''
+        self.write_file('package.json', f'''
     {\n
-    "name": "serve_html",
+    "name": "{self.projectName}",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
