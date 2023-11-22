@@ -54,32 +54,33 @@ class ScaffoldProject:
 
     def writePackages(self):
         self.write_file('package.json', f'''
-    {\n
-    "name": "{self.projectName}",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "start": "node index.js",
-      "format": "prettier --write .",
-      "build": "postcss public/css/styles.css -o public/css/build/styles.css",
-      "watch:css": "postcss public/css/styles.css -o public/css/build/styles.css --watch",
-      "test": "echo \\\"Error: no test specified\\\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {},
-    "devDependencies": {
-        "autoprefixer": "^10.4.16",
-        "http": "^0.0.1-security",
-        "http-status-codes": "^2.3.0",
-        "postcss": "^8.4.31",
-        "tailwindcss": "^3.3.5",
-        "@tailwindcss/forms": "^0.5.7",
-        "prettier": "^3.1.0"
-    }
-    }\n''')
+        {{
+        "name": "{self.projectName.lower()}",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {{
+        "start": "node index.js",
+        "format": "prettier --write .",
+        "build": "postcss public/css/styles.css -o public/css/build/styles.css",
+        "watch:css": "postcss public/css/styles.css -o public/css/build/styles.css --watch",
+        "test": "echo \\\"Error: no test specified\\\" && exit 1"
+        }},
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "dependencies": {{}},
+        "devDependencies": {{
+            "autoprefixer": "^10.4.16",
+            "http": "^0.0.1-security",
+            "http-status-codes": "^2.3.0",
+            "postcss": "^8.4.31",
+            "tailwindcss": "^3.3.5",
+            "@tailwindcss/forms": "^0.5.7",
+            "prettier": "^3.1.0"
+        }}
+        }}\n''')
+
 
     def write_file(self, filename, text):
         with open(filename, 'w') as f:
